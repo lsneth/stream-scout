@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watch Provider Search</title>
+    <link rel="icon" type="image/x-icon" href="/watch-providers/images/logo.png" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2E5N6JZP8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'G-V2E5N6JZP8')
+    </script>
+  </head>
+  <body>
+    <main>
+      <div id="hero">
+        <div class="backdropImageGradient" id="heroGradient">
+          <img class="backdropImage" src="./images/defaultBackdrop.jpg" id="heroImage" />
+        </div>
+        <div id="heroText">
+          <h1>Stream Scout</h1>
+          <p id="instructions">Search any title to see where it is available to stream, rent, or buy!<br /></p>
+        </div>
+      </div>
+      <form id="search-form">
+        <div class="radio-button">
+          <input type="radio" id="css" name="showType" value="tv" checked />
+          <label for="css">TV Shows</label><br />
+        </div>
+        <div class="radio-button">
+          <input type="radio" id="html" name="showType" value="movie" />
+          <label for="html">Movies</label><br />
+        </div>
+
+        <input type="text" placeholder="Enter a title..." id="user-input" name="searchQuery" />
+        <button type="submit">Search</button>
+      </form>
+
+      <p id="shows"></p>
+    </main>
+    <footer>
+      <a href="https://developer.themoviedb.org/docs/getting-started">
+        <img src="images/tmdb.svg" alt="tmdb link" id="tmdb-logo" />
+      </a>
+      <a href="./index.html">
+        <img src="images/logo.png" id="footer-logo" />
+      </a>
+      <p>&copy; Lucas Nethercott 2023</p>
+    </footer>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
