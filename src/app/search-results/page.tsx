@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { MovieResult, TvResult } from '../../../types/types'
 import { getWatchData } from '../../../services/awsServices'
 import Poster from './_components/Poster'
-import SearchForm from '../_components/SearchForm'
+import SearchForm from '../SearchForm'
 import Link from 'next/link'
 
 export default function SearchResults({
