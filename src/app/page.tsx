@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import QueryForm from './QueryForm'
+import SearchForm from './_components/SearchForm'
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         Search for any movie or tv show to see where it is available to stream,
         rent, or buy!
       </p>
-      <QueryForm />
+      <SearchForm />
     </main>
   )
 }

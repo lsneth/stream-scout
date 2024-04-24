@@ -1,4 +1,4 @@
-type MovieResult = {
+export type MovieResult = {
   adult: boolean
   backdrop_path: string
   genre_ids: number[]
@@ -15,7 +15,7 @@ type MovieResult = {
   vote_count: number
 }
 
-type TvResult = {
+export type TvResult = {
   adult: boolean
   backdrop_path: string
   genre_ids: number[]
@@ -32,7 +32,7 @@ type TvResult = {
   vote_count: number
 }
 
-type MovieTvData = {
+export type MovieTvData = {
   page: number
   results: MovieResult[] | TvResult[]
   total_pages: number

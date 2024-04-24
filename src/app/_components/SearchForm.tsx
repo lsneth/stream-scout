@@ -1,15 +1,15 @@
-"use client"
+'use client'
 
-import React, { FormEvent, useState } from "react"
-import { getWatchData } from "../../services"
+import React, { FormEvent, useState } from 'react'
+import { getWatchData } from '../../../services'
 
-export default function QueryForm() {
-  const [watchType, setWatchType] = useState("movie")
-  const [query, setQuery] = useState("")
+export default function SearchForm() {
+  const [watchType, setWatchType] = useState('movie')
+  const [query, setQuery] = useState('')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setQuery("")
+    setQuery('')
     console.log(await getWatchData({ query, watchType }))
   }
 
@@ -21,7 +21,7 @@ export default function QueryForm() {
           type="radio"
           name="showType"
           value="movie"
-          checked={watchType === "movie"}
+          checked={watchType === 'movie'}
           onChange={(e) => setWatchType(e.target.value)}
         />
       </label>
@@ -32,7 +32,7 @@ export default function QueryForm() {
           type="radio"
           name="watchType"
           value="tv"
-          checked={watchType === "tv"}
+          checked={watchType === 'tv'}
           onChange={(e) => setWatchType(e.target.value)}
         />
       </label>

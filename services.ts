@@ -1,10 +1,12 @@
+import { MovieTvData } from './types/types'
+
 export async function getWatchData({
   query,
   watchType,
 }: {
   query: string
   watchType: string
-}) {
+}): Promise<MovieTvData> {
   const res = await fetch(
     `https://mnva0fhft9.execute-api.us-east-2.amazonaws.com/default/getWatchData?query=${query}&watchType=${watchType}`,
   )
