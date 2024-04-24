@@ -1,4 +1,5 @@
-import { MovieTvData } from './types/types'
+// import 'server-only'
+import { MovieTvData } from '../types/types'
 
 export async function getWatchData({
   query,

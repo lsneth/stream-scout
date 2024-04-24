@@ -1,20 +1,14 @@
 'use client'
 
-import React, { FormEvent, useState } from 'react'
-import { getWatchData } from '../../../services'
+import Link from 'next/link'
+import React, { useState } from 'react'
 
 export default function SearchForm() {
   const [watchType, setWatchType] = useState('movie')
   const [query, setQuery] = useState('')
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setQuery('')
-    console.log(await getWatchData({ query, watchType }))
-  }
-
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form>
       <label>
         Movies
         <input
@@ -45,7 +39,11 @@ export default function SearchForm() {
         onChange={(e) => setQuery(e.target.value)}
         className="text-black"
       />
-      <button type="submit">Search</button>
+      <Link
+        href={`/search-results?query=${query.replace(/ /g, '+')}&watchType=${watchType}`}
+      >
+        <button>Search</button>
+      </Link>
     </form>
   )
 }

@@ -3,7 +3,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Stream Scout',
-  description: 'Instantly find where to stream, buy, or rent movies and TV shows.',
+  description:
+    'Instantly find where to stream, buy, or rent movies and TV shows.',
 }
 
 export default function RootLayout({
@@ -13,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="text-white">{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
