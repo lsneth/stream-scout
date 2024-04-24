@@ -38,3 +38,23 @@ export type MovieTvData = {
   total_pages: number
   total_results: number
 }
+
+export type WatchProvider = {
+  logo_path: string
+  provider_id: number
+  provider_name: string
+  display_priority: number
+}
+
+export type WatchProviderData = {
+  id: number
+  results: Record<
+    string, // two-letter country code
+    {
+      link?: string
+      rent?: WatchProvider[]
+      buy?: WatchProvider[]
+      flatrate?: WatchProvider[]
+    }
+  >
+}

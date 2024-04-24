@@ -1,5 +1,5 @@
 // import 'server-only'
-import { MovieTvData } from '../types/types'
+import { MovieTvData, WatchProviderData } from '../types/types'
 
 export async function getWatchData({
   query,
@@ -20,7 +20,7 @@ export async function getWatchProviders({
 }: {
   watchType: string
   watchId: string
-}) {
+}): Promise<WatchProviderData> {
   const res = await fetch(
     `https://oe68fbhrig.execute-api.us-east-2.amazonaws.com/default/getWatchProviders?watchType=${watchType}&watchId=${watchId}`,
   )

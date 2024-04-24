@@ -1,17 +1,18 @@
 'use client'
+
 import React, { useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
 import { MovieResult, TvResult } from '../../../types/types'
 import { getWatchData } from '../../../services/awsServices'
-import Image from 'next/image'
 import Poster from './_components/Poster'
 import SearchForm from '../_components/SearchForm'
+import Link from 'next/link'
 
-export default function SearchResults(): JSX.Element {
-  const queryParams = useSearchParams()
-  const watchType = queryParams.get('watchType') ?? ''
-  const query = queryParams.get('query') ?? ''
-
+export default function SearchResults({
+  searchParams,
+}: {
+  searchParams: { query: string; watchType: 'tv' | 'movie' }
+}): JSX.Element {
+  const { watchType, query } = searchParams
   const [results, setResults] = React.useState<MovieResult[] | TvResult[]>([])
 
   useEffect(() => {
@@ -33,7 +34,14 @@ export default function SearchResults(): JSX.Element {
       {results.map((result) => {
         const { poster_path, id } = result
         const title = (result as MovieResult).title ?? (result as TvResult).name
-        return <Poster poster_path={poster_path} title={title} key={id} />
+        return (
+          <Link
+            href={`/result?id=${id}&title=${title}&poster_path=${poster_path}&watchType=${watchType}`}
+            key={id}
+          >
+            <Poster poster_path={poster_path} title={title} />
+          </Link>
+        )
       })}
     </>
   )
