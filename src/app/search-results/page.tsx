@@ -30,7 +30,7 @@ export default function SearchResults({
 
   return (
     <>
-      <SearchForm long />
+      <SearchForm long defaultWatchType={watchType} />
       <div className="flex flex-wrap justify-around gap-5 p-5">
         {results.map((result) => {
           const { poster_path, id } = result

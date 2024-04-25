@@ -4,9 +4,15 @@ import React, { useState } from 'react'
 import Button from './_components/Button'
 import { useRouter } from 'next/navigation'
 
-export default function SearchForm({ long = false }: { long?: boolean }) {
+export default function SearchForm({
+  long = false,
+  defaultWatchType = 'movie',
+}: {
+  long?: boolean
+  defaultWatchType?: 'movie' | 'tv'
+}) {
   const router = useRouter()
-  const [watchType, setWatchType] = useState<'tv' | 'movie'>('movie')
+  const [watchType, setWatchType] = useState<'tv' | 'movie'>(defaultWatchType)
   const [query, setQuery] = useState('')
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
