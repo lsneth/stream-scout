@@ -16,6 +16,9 @@ const config: Config = {
         accent1: '#921D54',
         accent2: '#24B6D0',
       },
+      spacing: {
+        '108': '27rem',
+      },
     },
   },
   plugins: [],
