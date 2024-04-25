@@ -29,7 +29,7 @@ export default function SearchResults({
   }, [query, watchType])
 
   return (
-    <div className="bg-gradient-to-t from-black">
+    <div className="">
       <SearchForm long />
       {results.map((result) => {
         const { poster_path, id } = result

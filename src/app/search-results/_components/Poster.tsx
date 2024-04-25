@@ -13,7 +13,7 @@ export default function Poster({
   height?: number
 }): JSX.Element {
   return (
-    <>
+    <div className="my-5">
       {!!poster_path ? (
         <Image
           src={`https://image.tmdb.org/t/p/w342${poster_path}`}
@@ -26,6 +26,6 @@ export default function Poster({
         <div className="bg-pink-400">no poster</div>
       )}
       {title && <p>{title}</p>}
-    </>
+    </div>
   )
 }

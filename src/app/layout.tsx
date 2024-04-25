@@ -16,12 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className="h-full bg-home-design text-center text-white">
-        <div className="flex h-full flex-col justify-between">
-          <NavBar />
-          {children}
-          <Footer />
-        </div>
+      <body className="flex h-full flex-col bg-home-design bg-cover text-center text-white">
+        <NavBar />
+        <div className="grow bg-gradient-to-t from-black">{children}</div>
+        <Footer />
       </body>
     </html>
   )
