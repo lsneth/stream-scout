@@ -4,11 +4,11 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className="flex min-h-8 justify-between bg-black p-3">
+    <div className="flex min-h-12 justify-between bg-black p-4">
       <Link
         target="_blank"
         href="https://developer.themoviedb.org/reference/intro/getting-started"
-        className="flex"
+        className="flex align-middle"
       >
         <Image
           src="/tmdb.svg"
@@ -18,7 +18,7 @@ export default function Footer() {
           className="align-middle"
         />
       </Link>
-      <p className="text-sm">©2024 Lucas Nethercott</p>
+      <p className="align-middle text-xs">©2024 Lucas Nethercott</p>
     </div>
   )
 }

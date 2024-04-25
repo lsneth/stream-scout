@@ -29,8 +29,8 @@ export default function SearchResults({
   }, [query, watchType])
 
   return (
-    <>
-      <SearchForm />
+    <div className="bg-gradient-to-t from-black">
+      <SearchForm long />
       {results.map((result) => {
         const { poster_path, id } = result
         const title = (result as MovieResult).title ?? (result as TvResult).name
@@ -43,6 +43,6 @@ export default function SearchResults({
           </Link>
         )
       })}
-    </>
+    </div>
   )
 }

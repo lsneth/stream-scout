@@ -20,6 +20,7 @@ export default function Poster({
           alt={`${title} poster`}
           width={width}
           height={height}
+          className="m-auto mt-5"
         />
       ) : (
         <div className="bg-pink-400">no poster</div>

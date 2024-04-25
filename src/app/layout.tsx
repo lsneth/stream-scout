@@ -15,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="m-0 h-full">
-      <body className="bg-home-design m-0 h-full bg-cover text-center text-white">
-        <div className="m-h-full box-border flex h-full w-screen flex-col justify-between overflow-x-hidden overflow-y-hidden bg-gradient-to-t	from-black">
+    <html lang="en" className="h-full">
+      <body className="h-full bg-home-design text-center text-white">
+        <div className="flex h-full flex-col justify-between">
           <NavBar />
-          <div className="px-5">{children}</div>
+          {children}
           <Footer />
         </div>
       </body>

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Button from './_components/Button'
 import { useRouter } from 'next/navigation'
 
-export default function SearchForm() {
+export default function SearchForm({ long = false }: { long?: boolean }) {
   const router = useRouter()
   const [watchType, setWatchType] = useState<'tv' | 'movie'>('movie')
   const [query, setQuery] = useState('')
@@ -19,17 +19,17 @@ export default function SearchForm() {
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
-      className="m-auto max-w-96 rounded-lg bg-black p-7 text-center"
+      className={`${long ? ' border-t-2 border-accent2 bg-black p-5 text-center' : 'm-auto max-w-96 rounded-lg bg-black p-7 text-center'}`}
     >
       <Button
         onClick={() => setWatchType('movie')}
-        className={`${watchType === 'movie' ? 'bg-accent1 border-b-2 border-b-white' : 'bg-accent2'}`}
+        className={`${watchType === 'movie' ? 'border-b-2 border-b-white bg-accent1' : 'bg-accent2'}`}
       >
         Movies
       </Button>
       <Button
         onClick={() => setWatchType('tv')}
-        className={`${watchType === 'tv' ? 'bg-accent1 border-b-2 border-b-white' : 'bg-accent2'}`}
+        className={`${watchType === 'tv' ? 'border-b-2 border-b-white bg-accent1' : 'bg-accent2'}`}
       >
         TV Shows
       </Button>
