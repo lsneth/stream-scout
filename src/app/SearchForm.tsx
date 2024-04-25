@@ -1,15 +1,26 @@
 'use client'
 
-import Link from 'next/link'
 import React, { useState } from 'react'
 import Button from './_components/Button'
+import { useRouter } from 'next/navigation'
 
 export default function SearchForm() {
+  const router = useRouter()
   const [watchType, setWatchType] = useState<'tv' | 'movie'>('movie')
   const [query, setQuery] = useState('')
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    router.push(
+      `/search-results?query=${query.replace(/ /g, '+')}&watchType=${watchType}`,
+    )
+  }
+
   return (
-    <div className="m-auto max-w-96 rounded-lg bg-black p-7 text-center">
+    <form
+      onSubmit={(e) => handleSubmit(e)}
+      className="m-auto max-w-96 rounded-lg bg-black p-7 text-center"
+    >
       <Button
         onClick={() => setWatchType('movie')}
         className={`${watchType === 'movie' ? 'bg-accent1 border-b-2 border-b-white' : 'bg-accent2'}`}
@@ -34,11 +45,7 @@ export default function SearchForm() {
       />
       <br />
 
-      <Link
-        href={`/search-results?query=${query.replace(/ /g, '+')}&watchType=${watchType}`}
-      >
-        <Button>Search</Button>
-      </Link>
-    </div>
+      <Button type="submit">Search</Button>
+    </form>
   )
 }
