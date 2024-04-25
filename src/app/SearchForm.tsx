@@ -9,7 +9,7 @@ export default function SearchForm() {
   const [query, setQuery] = useState('')
 
   return (
-    <div className="m-5 rounded-lg bg-black p-5 text-center">
+    <div className="m-auto max-w-96 rounded-lg bg-black p-7 text-center">
       <Button
         onClick={() => setWatchType('movie')}
         className={`${watchType === 'movie' ? 'bg-accent1 border-b-2 border-b-white' : 'bg-accent2'}`}
@@ -22,6 +22,7 @@ export default function SearchForm() {
       >
         TV Shows
       </Button>
+      <br />
 
       <input
         type="text"
@@ -29,8 +30,9 @@ export default function SearchForm() {
         name="query"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="m-2 rounded-lg p-2 text-black"
+        className="my-2 w-full rounded-lg p-2 text-black"
       />
+      <br />
 
       <Link
         href={`/search-results?query=${query.replace(/ /g, '+')}&watchType=${watchType}`}
