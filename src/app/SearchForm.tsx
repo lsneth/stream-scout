@@ -47,7 +47,7 @@ export default function SearchForm({
         name="query"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="m-auto mx-1 my-2 w-full rounded-lg p-2 text-black"
+        className="m-auto mx-1 my-2 w-full rounded-lg border-2 border-solid p-2 text-black focus:outline-accent1"
       />
       <br />
 

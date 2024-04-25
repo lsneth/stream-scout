@@ -8,17 +8,13 @@ export default function Footer() {
       <Link
         target="_blank"
         href="https://developer.themoviedb.org/reference/intro/getting-started"
-        className="flex align-middle"
+        className="flex items-center"
       >
-        <Image
-          src="/tmdb.svg"
-          alt="tmdb logo"
-          height={24}
-          width={96}
-          className="align-middle"
-        />
+        <Image src="/tmdb.svg" alt="tmdb logo" height={24} width={96} />
       </Link>
-      <p className="align-middle text-xs">©2024 Lucas Nethercott</p>
+      <a href="https://www.lucasnethercott.com" className="text-xs">
+        ©2024 Lucas Nethercott
+      </a>
     </div>
   )
 }
