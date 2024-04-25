@@ -38,7 +38,7 @@ export default function SearchResults({
             (result as MovieResult).title ?? (result as TvResult).name
           return (
             <Link
-              href={`/result?id=${id}&title=${title}&poster_path=${poster_path}&watchType=${watchType}`}
+              href={`/result?id=${id}&poster_path=${poster_path}&watchType=${watchType}`}
               key={id}
             >
               <Poster poster_path={poster_path} title={title} />

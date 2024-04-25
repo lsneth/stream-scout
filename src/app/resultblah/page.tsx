@@ -50,7 +50,7 @@ export default function Result({
     watchType: string
   }
 }) {
-  const { id, title, poster_path, watchType } = searchParams
+  const { id, poster_path, watchType } = searchParams
   const [flatrateProviders, setFlatrateProviders] = useState<WatchProvider[]>(
     [],
   )
