@@ -6,6 +6,7 @@ import { getWatchData } from '../../../services/awsServices'
 import Poster from './_components/Poster'
 import SearchForm from '../SearchForm'
 import Link from 'next/link'
+import LoadingSpinner from '../_components/LoadingSpinner'
 
 export default function SearchResults({
   searchParams,
@@ -13,8 +14,9 @@ export default function SearchResults({
   searchParams: { query: string; watchType: 'tv' | 'movie' }
 }): JSX.Element {
   const { watchType, query } = searchParams
-  const [results, setResults] = React.useState<MovieResult[] | TvResult[]>([])
-
+  const [results, setResults] = React.useState<
+    MovieResult[] | TvResult[] | null
+  >(null)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,19 +34,23 @@ export default function SearchResults({
     <>
       <SearchForm long defaultWatchType={watchType} />
       <div className="flex flex-wrap justify-around gap-5 p-5">
-        {results.map((result) => {
-          const { poster_path, id } = result
-          const title =
-            (result as MovieResult).title ?? (result as TvResult).name
-          return (
-            <Link
-              href={`/result?id=${id}&poster_path=${poster_path}&watchType=${watchType}`}
-              key={id}
-            >
-              <Poster poster_path={poster_path} title={title} />
-            </Link>
-          )
-        })}
+        {!!results ? (
+          results.map((result) => {
+            const { poster_path, id } = result
+            const title =
+              (result as MovieResult).title ?? (result as TvResult).name
+            return (
+              <Link
+                href={`/result?id=${id}&poster_path=${poster_path}&watchType=${watchType}`}
+                key={id}
+              >
+                <Poster poster_path={poster_path} title={title} />
+              </Link>
+            )
+          })
+        ) : (
+          <LoadingSpinner className="mt-24" />
+        )}
       </div>
     </>
   )

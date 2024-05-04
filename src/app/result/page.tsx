@@ -5,6 +5,7 @@ import Poster from '../search-results/_components/Poster'
 import { getWatchImage, getWatchProviders } from '../../../services/awsServices'
 import { Image as ImageType, WatchProvider } from '../../../types/types'
 import Image from 'next/image'
+import LoadingSpinner from '../_components/LoadingSpinner'
 
 function WatchProviders({
   type,
@@ -54,9 +55,13 @@ export default function Result({
   const [flatrateProviders, setFlatrateProviders] = useState<WatchProvider[]>(
     [],
   )
-  const [buyProviders, setBuyProviders] = useState<WatchProvider[]>([])
-  const [rentProviders, setRentProviders] = useState<WatchProvider[]>([])
+  const [buyProviders, setBuyProviders] = useState<WatchProvider[] | null>(null)
+  const [rentProviders, setRentProviders] = useState<WatchProvider[] | null>(
+    null,
+  )
   const [backdropImages, setBackdropImages] = useState<ImageType[]>([])
+
+  const loading = !flatrateProviders || !buyProviders || !rentProviders
 
   let backdropImage: ImageType | undefined
   let highestScore = 0
@@ -107,12 +112,18 @@ export default function Result({
         </div>
 
         <div className="flex gap-3 sm:gap-10 lg:flex-col">
-          <WatchProviders
-            type="flatrate"
-            watchProviderData={flatrateProviders}
-          />
-          <WatchProviders type="buy" watchProviderData={buyProviders} />
-          <WatchProviders type="rent" watchProviderData={rentProviders} />
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            <>
+              <WatchProviders
+                type="flatrate"
+                watchProviderData={flatrateProviders}
+              />
+              <WatchProviders type="buy" watchProviderData={buyProviders} />
+              <WatchProviders type="rent" watchProviderData={rentProviders} />
+            </>
+          )}
         </div>
       </div>
     </div>

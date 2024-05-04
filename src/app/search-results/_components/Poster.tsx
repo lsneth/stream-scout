@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import LoadingSpinner from '../../_components/LoadingSpinner'
 
 export default function Poster({
   title = '',
@@ -29,14 +30,18 @@ export default function Poster({
           className="rounded-lg"
         />
       ) : (
-        <div className="xl:h-108 flex h-48 flex-col justify-center rounded-lg bg-black lg:h-80">
-          <Image
-            src="/no-image.svg"
-            alt={`${title} poster`}
-            width={50}
-            height={50}
-            className="m-auto"
-          />
+        <div className="flex h-48 flex-col justify-center rounded-lg bg-black lg:h-80 xl:h-108">
+          {poster_path === null ? (
+            <Image
+              src="/no-image.svg"
+              alt={`${title} poster`}
+              width={50}
+              height={50}
+              className="m-auto"
+            />
+          ) : (
+            <LoadingSpinner className="m-auto" />
+          )}
         </div>
       )}
       {title && <p className={titleText ? 'mt-3 text-4xl' : ''}>{title}</p>}
