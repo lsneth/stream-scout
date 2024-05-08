@@ -3,10 +3,11 @@
 import React, { useEffect } from 'react'
 import { MovieResult, TvResult } from '../../../types/types'
 import { getWatchData } from '../../../services/awsServices'
-import Poster from './_components/Poster'
+import Poster from './_components/poster/Poster'
 import SearchForm from '../SearchForm'
 import Link from 'next/link'
 import LoadingSpinner from '../_components/LoadingSpinner'
+import PosterSkeleton from './_components/poster/PosterSkeleton'
 
 export default function SearchResults({
   searchParams,
@@ -49,7 +50,14 @@ export default function SearchResults({
             )
           })
         ) : (
-          <LoadingSpinner className="mt-24" />
+          <>
+            <PosterSkeleton />
+            <PosterSkeleton />
+            <PosterSkeleton />
+            <PosterSkeleton />
+            <PosterSkeleton />
+            <PosterSkeleton />
+          </>
         )}
       </div>
     </>

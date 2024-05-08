@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import Poster from '../search-results/_components/Poster'
+import Poster from '../search-results/_components/poster/Poster'
 import { getWatchImage, getWatchProviders } from '../../../services/awsServices'
 import { Image as ImageType, WatchProvider } from '../../../types/types'
 import Image from 'next/image'
@@ -108,7 +108,7 @@ export default function Result({
       </div>
       <div className="-mt-20 flex flex-col items-center justify-center gap-5 lg:flex-row lg:gap-14">
         <div className="flex text-center">
-          <Poster poster_path={poster_path} fullWidth titleText />
+          <Poster poster_path={poster_path} fullWidth />
         </div>
 
         <div className="flex gap-3 sm:gap-10 lg:flex-col">
