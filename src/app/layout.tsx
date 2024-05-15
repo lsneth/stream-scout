@@ -3,6 +3,7 @@ import './globals.css'
 import NavBar from './NavBar'
 import Footer from './Footer'
 import { Poppins } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const poppins = Poppins({
   weight: '400',
@@ -28,6 +29,7 @@ export default function RootLayout({
         <div className="grow bg-gradient-to-t from-black">{children}</div>
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-8624TRJQ0Z" />
     </html>
   )
 }
