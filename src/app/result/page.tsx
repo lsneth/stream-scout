@@ -95,7 +95,7 @@ export default function Result({
     fetchData()
   }, [id, watchType])
   return (
-    <div className="h-full bg-black">
+    <div className="mb-20 h-full bg-black">
       <div
         style={{
           backgroundImage: backdropImage
@@ -107,7 +107,7 @@ export default function Result({
         <div className="grow bg-gradient-to-t from-black" />
       </div>
       <div className="-mt-20 flex flex-col items-center justify-center gap-5 lg:flex-row lg:gap-14">
-        <div className="flex text-center">
+        <div className="flex p-5 text-center">
           <Poster poster_path={poster_path} fullWidth />
         </div>
 

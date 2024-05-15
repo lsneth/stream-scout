@@ -6,7 +6,6 @@ import { getWatchData } from '../../../services/awsServices'
 import Poster from './_components/poster/Poster'
 import SearchForm from '../SearchForm'
 import Link from 'next/link'
-import LoadingSpinner from '../_components/LoadingSpinner'
 import PosterSkeleton from './_components/poster/PosterSkeleton'
 
 export default function SearchResults({
@@ -34,7 +33,7 @@ export default function SearchResults({
   return (
     <>
       <SearchForm long defaultWatchType={watchType} />
-      <div className="flex flex-wrap justify-around gap-5 p-5">
+      <div className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-5 p-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
         {!!results ? (
           results.map((result) => {
             const { poster_path, id } = result
@@ -46,11 +45,13 @@ export default function SearchResults({
                 key={id}
               >
                 <Poster poster_path={poster_path} title={title} />
+                <p className="mt-3 line-clamp-3 text-base">{title}</p>
               </Link>
             )
           })
         ) : (
           <>
+            <PosterSkeleton />
             <PosterSkeleton />
             <PosterSkeleton />
             <PosterSkeleton />
