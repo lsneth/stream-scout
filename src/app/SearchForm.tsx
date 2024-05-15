@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Button from './_components/Button'
 import { useRouter } from 'next/navigation'
+import { sendGAEvent } from '@next/third-parties/google'
 
 export default function SearchForm({
   long = false,
@@ -17,6 +18,7 @@ export default function SearchForm({
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    sendGAEvent({ event: 'search', value: { watchType, query } })
     router.push(
       `/search-results?query=${query.replace(/ /g, '+')}&watchType=${watchType}`,
     )
