@@ -4,7 +4,7 @@
 
 A solution for quickly finding where a movie or TV show is currently available to stream, rent, or buy.
 Stream Scout leverages [TMDB's API](https://developer.themoviedb.org/reference/intro/getting-started) to provide a simple cinema search experience.
-View deploy at [https://streamscout.lucasnethercott.com/](https://streamscout.lucasnethercott.com/).
+View the deployment at [https://streamscout.lucasnethercott.com/](https://streamscout.lucasnethercott.com/).
 
 ## Stack
 
