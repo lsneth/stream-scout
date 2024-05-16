@@ -14,6 +14,7 @@ const config: Config = {
       colors: {
         black: '#09162E',
         accent1: '#921D54',
+        accent1Active: '#118499',
         accent2: '#24B6D0',
       },
       spacing: {
