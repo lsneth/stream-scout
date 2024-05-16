@@ -6,6 +6,7 @@ import { getWatchImage, getWatchProviders } from '../../../services/awsServices'
 import { Image as ImageType, WatchProvider } from '../../../types/types'
 import Image from 'next/image'
 import LoadingSpinner from '../_components/LoadingSpinner'
+import SearchForm from '../SearchForm'
 
 function WatchProviders({
   type,
@@ -48,7 +49,7 @@ export default function Result({
     id: string
     title: string
     poster_path: string
-    watchType: string
+    watchType: 'movie' | 'tv'
   }
 }) {
   const { id, poster_path, watchType } = searchParams
@@ -96,6 +97,7 @@ export default function Result({
   }, [id, watchType])
   return (
     <div className="h-full bg-black">
+      <SearchForm long defaultWatchType={watchType} />
       <div
         style={{
           backgroundImage: backdropImage
@@ -106,7 +108,7 @@ export default function Result({
       >
         <div className="grow bg-gradient-to-t from-black" />
       </div>
-      <div className="-mt-32 flex flex-col items-center justify-center gap-5 lg:flex-row lg:gap-14">
+      <div className="-mt-40 flex flex-col items-center justify-center gap-5 lg:flex-row lg:gap-8">
         <div className="flex p-5 text-center">
           <Poster poster_path={poster_path} fullWidth />
         </div>
