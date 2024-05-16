@@ -77,9 +77,6 @@ export default function Result({
     const fetchData = async () => {
       try {
         const data = await getWatchProviders({ watchType, watchId: id })
-
-        console.log('data:', await data)
-
         setFlatrateProviders(data.results?.US?.flatrate ?? [])
         setBuyProviders(data.results?.US?.buy ?? [])
         setRentProviders(data.results?.US?.rent ?? [])
