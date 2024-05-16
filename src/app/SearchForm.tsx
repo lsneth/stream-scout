@@ -18,7 +18,7 @@ export default function SearchForm({
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    sendGAEvent({ event: 'search', value: { watchType, query } })
+    sendGAEvent('event', 'search', { watchType, query })
     router.push(
       `/search-results?query=${query.replace(/ /g, '+')}&watchType=${watchType}`,
     )
