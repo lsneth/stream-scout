@@ -27,7 +27,7 @@ export default function SearchForm({
   return (
     <form
       onSubmit={(e) => handleSubmit(e)}
-      className={`${long ? ' border-t-2 border-accent2 bg-black p-5 text-center sm:flex sm:py-3' : 'm-auto max-w-96 rounded-lg bg-black p-7 text-center'}`}
+      className={`${long ? 'bg-black p-5 text-center sm:flex sm:py-3' : 'm-auto max-w-96 rounded-lg bg-black p-7 text-center'}`}
     >
       <Button
         onClick={() => setWatchType('movie')}
