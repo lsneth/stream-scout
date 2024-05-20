@@ -46,7 +46,7 @@ describe('happy path', () => {
       cy.contains('button', 'Search').click()
     })
 
-    cy.contains('Search Results')
+    cy.contains('Search results for "lord of the rings"')
     cy.contains('The Lord of the Rings: The Return of the King').click()
 
     cy.contains('The Lord of the Rings: The Return of the King')
@@ -64,7 +64,7 @@ describe('happy path', () => {
       cy.contains('button', 'Search').click()
     })
 
-    cy.contains('Search Results')
+    cy.contains('Search results for "prison break"')
     cy.contains('Prison Break').click()
 
     cy.contains('Prison Break')
