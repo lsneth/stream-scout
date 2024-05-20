@@ -108,16 +108,16 @@ export default function Result({
       >
         <div className="grow bg-gradient-to-t from-black" />
       </div>
-      <div className="mx-auto -mt-40 flex max-w-screen-2xl flex-col items-center justify-center lg:flex-row lg:gap-8">
+      <div className="mx-auto -mt-32 flex max-w-screen-2xl flex-col items-center justify-center lg:-mt-64 lg:flex-row lg:gap-8">
         <div className="flex p-5 text-center">
           <Poster poster_path={poster_path} higherQuality />
         </div>
 
         <div className="lg:flex lg:flex-col">
-          <h1 className="mb-5 text-pretty text-4xl max-lg:mx-5 lg:text-left">
+          <h1 className="mb-10 text-pretty text-4xl drop-shadow-md max-lg:mx-5 lg:text-left">
             {title}
           </h1>
-          <div className="flex gap-3 sm:gap-10 lg:flex-col">
+          <div className="flex justify-center gap-3 sm:gap-10 lg:flex-col">
             {loading ? (
               <LoadingSpinner />
             ) : (
