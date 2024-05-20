@@ -4,16 +4,17 @@ import React from 'react'
 export default function Poster({
   title = '',
   poster_path = '',
+  higherQuality = false,
 }: {
   title?: string
   poster_path: string
-  fullWidth?: boolean
+  higherQuality?: boolean
 }): JSX.Element {
   return (
     <Image
       src={
         !!poster_path
-          ? `https://image.tmdb.org/t/p/w342${poster_path}`
+          ? `https://image.tmdb.org/t/p/w${higherQuality ? 342 : 185}${poster_path}`
           : '/no-image.png'
       }
       alt={`${title} poster`}

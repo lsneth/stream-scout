@@ -110,7 +110,7 @@ export default function Result({
       </div>
       <div className="-mt-40 flex flex-col items-center justify-center gap-5 lg:flex-row lg:gap-8">
         <div className="flex p-5 text-center">
-          <Poster poster_path={poster_path} fullWidth />
+          <Poster poster_path={poster_path} higherQuality />
         </div>
 
         <div className="flex gap-3 sm:gap-10 lg:flex-col">
