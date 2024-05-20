@@ -46,10 +46,11 @@ export default function SearchForm({
       <input
         type="text"
         placeholder="Enter a title..."
-        name="query"
+        id="query"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         className="m-auto mx-1 my-2 w-full rounded-lg border-2 border-solid p-2 text-black focus:outline-accent1"
+        aria-label="Enter a title..."
       />
       <br />
 

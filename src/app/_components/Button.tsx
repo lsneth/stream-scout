@@ -14,7 +14,7 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`${className} m-1 max-h-10 text-nowrap rounded-lg px-3 py-2 ${className.includes('bg-') ? '' : 'active:bg-accent1Active bg-accent2'}`}
+      className={`${className} m-1 max-h-10 text-nowrap rounded-lg px-3 py-2 ${className.includes('bg-') ? '' : 'active:bg-accent2Active bg-accent2'}`}
       type={type}
     >
       {children}

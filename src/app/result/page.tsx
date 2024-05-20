@@ -23,7 +23,7 @@ function WatchProviders({
 
   return (
     <div className="flex flex-col gap-3 max-lg:mb-10 lg:flex-row lg:items-center">
-      <h2 className="mr-5 w-20 text-2xl lg:text-left">{displayType[type]}</h2>
+      <h2 className="mr-2 w-20 text-xl lg:text-left">{displayType[type]}</h2>
       {watchProviderData.length > 0 ? (
         watchProviderData.map((provider) => (
           <Image
@@ -52,7 +52,7 @@ export default function Result({
     watchType: 'movie' | 'tv'
   }
 }) {
-  const { id, poster_path, watchType } = searchParams
+  const { id, poster_path, watchType, title } = searchParams
   const [flatrateProviders, setFlatrateProviders] = useState<WatchProvider[]>(
     [],
   )
@@ -108,24 +108,29 @@ export default function Result({
       >
         <div className="grow bg-gradient-to-t from-black" />
       </div>
-      <div className="-mt-40 flex flex-col items-center justify-center gap-5 lg:flex-row lg:gap-8">
+      <div className="mx-auto -mt-40 flex max-w-screen-2xl flex-col items-center justify-center lg:flex-row lg:gap-8">
         <div className="flex p-5 text-center">
           <Poster poster_path={poster_path} higherQuality />
         </div>
 
-        <div className="flex gap-3 sm:gap-10 lg:flex-col">
-          {loading ? (
-            <LoadingSpinner />
-          ) : (
-            <>
-              <WatchProviders
-                type="flatrate"
-                watchProviderData={flatrateProviders}
-              />
-              <WatchProviders type="buy" watchProviderData={buyProviders} />
-              <WatchProviders type="rent" watchProviderData={rentProviders} />
-            </>
-          )}
+        <div className="lg:flex lg:flex-col">
+          <h1 className="mb-5 text-pretty text-4xl max-lg:mx-5 lg:text-left">
+            {title}
+          </h1>
+          <div className="flex gap-3 sm:gap-10 lg:flex-col">
+            {loading ? (
+              <LoadingSpinner />
+            ) : (
+              <>
+                <WatchProviders
+                  type="flatrate"
+                  watchProviderData={flatrateProviders}
+                />
+                <WatchProviders type="buy" watchProviderData={buyProviders} />
+                <WatchProviders type="rent" watchProviderData={rentProviders} />
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -33,33 +33,36 @@ export default function SearchResults({
   return (
     <>
       <SearchForm long defaultWatchType={watchType} />
-      <div className="mx-auto grid max-w-screen-2xl grid-cols-2 gap-5 p-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
-        {!!results ? (
-          results.map((result) => {
-            const { poster_path, id } = result
-            const title =
-              (result as MovieResult).title ?? (result as TvResult).name
-            return (
-              <Link
-                href={`/result?id=${id}&poster_path=${poster_path}&watchType=${watchType}`}
-                key={id}
-              >
-                <Poster poster_path={poster_path} title={title} />
-                <p className="mt-3 line-clamp-3 text-base">{title}</p>
-              </Link>
-            )
-          })
-        ) : (
-          <>
-            <PosterSkeleton />
-            <PosterSkeleton />
-            <PosterSkeleton />
-            <PosterSkeleton />
-            <PosterSkeleton />
-            <PosterSkeleton />
-            <PosterSkeleton />
-          </>
-        )}
+      <div className="mx-auto max-w-screen-2xl p-5">
+        <h1 className="mb-5 text-left text-3xl">Search Results</h1>
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
+          {!!results ? (
+            results.map((result) => {
+              const { poster_path, id } = result
+              const title =
+                (result as MovieResult).title ?? (result as TvResult).name
+              return (
+                <Link
+                  href={`/result?id=${id}&poster_path=${poster_path}&watchType=${watchType}&title=${title}`}
+                  key={id}
+                >
+                  <Poster poster_path={poster_path} title={title} />
+                  <h2 className="mt-3 line-clamp-3 text-base">{title}</h2>
+                </Link>
+              )
+            })
+          ) : (
+            <>
+              <PosterSkeleton />
+              <PosterSkeleton />
+              <PosterSkeleton />
+              <PosterSkeleton />
+              <PosterSkeleton />
+              <PosterSkeleton />
+              <PosterSkeleton />
+            </>
+          )}
+        </div>
       </div>
     </>
   )
