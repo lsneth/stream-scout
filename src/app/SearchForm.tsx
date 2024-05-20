@@ -8,13 +8,15 @@ import { sendGAEvent } from '@next/third-parties/google'
 export default function SearchForm({
   long = false,
   defaultWatchType = 'movie',
+  defaultQuery = '',
 }: {
   long?: boolean
   defaultWatchType?: 'movie' | 'tv'
+  defaultQuery?: string
 }) {
   const router = useRouter()
   const [watchType, setWatchType] = useState<'tv' | 'movie'>(defaultWatchType)
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState(defaultQuery)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()

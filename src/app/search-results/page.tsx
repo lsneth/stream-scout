@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { MovieResult, TvResult } from '../../../types/types'
 import { getWatchData } from '../../../services/awsServices'
 import Poster from './_components/poster/Poster'
@@ -17,6 +17,16 @@ export default function SearchResults({
   const [results, setResults] = React.useState<
     MovieResult[] | TvResult[] | null
   >(null)
+
+  const noResultsStrings = [
+    "Sorry, we don't have any matches for your imaginary movie! Care to search for something, you know, real? ;)",
+    'Second grade spelling bee champ you were not. Try again, you must. ;)',
+    "Well that's embarrasing... for you! What do you think this is a spell checker? ;)",
+  ]
+  const noResultsString = useRef(
+    noResultsStrings[Math.floor(Math.random() * noResultsStrings.length)],
+  )
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,9 +42,12 @@ export default function SearchResults({
 
   return (
     <>
-      <SearchForm long defaultWatchType={watchType} />
+      <SearchForm long defaultWatchType={watchType} defaultQuery={query} />
       <div className="mx-auto max-w-screen-2xl p-5">
-        <h1 className="mb-5 text-left text-3xl">Search Results</h1>
+        <h1 className="mb-5 text-left text-3xl">{`Search results for "${query}"`}</h1>
+        {!!(results && results.length === 0) && (
+          <p className="text-left">{noResultsString.current}</p>
+        )}
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
           {!!results ? (
             results.map((result) => {

@@ -55,7 +55,7 @@ describe('happy path', () => {
     cy.contains('Buy')
   })
 
-  it('displays search results for a tv show', () => {
+  it('displays search results and watch providers for a tv show', () => {
     cy.visit('http://localhost:3000/')
 
     cy.get('form').within(() => {
