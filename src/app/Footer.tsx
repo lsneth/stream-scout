@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className="flex flex-col items-center gap-5 border-t-2 border-accent2 bg-black p-5 sm:flex-row sm:justify-center sm:gap-8">
+    <footer className="flex flex-col items-center gap-5 border-t-2 border-accent2 bg-black p-5 sm:flex-row sm:justify-center sm:gap-8">
       <a
         target="_blank"
         href="https://developer.themoviedb.org/reference/intro/getting-started"
@@ -25,6 +25,6 @@ export default function Footer() {
       <a href="https://www.lucasnethercott.com" className="text-xs">
         ©2024 Lucas Nethercott
       </a>
-    </div>
+    </footer>
   )
 }
