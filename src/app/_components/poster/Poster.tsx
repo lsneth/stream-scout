@@ -20,7 +20,7 @@ export default function Poster({
       alt={`${title} poster`}
       width={342}
       height={513}
-      className={`rounded-lg drop-shadow-md`}
+      className={`rounded-lg drop-shadow-lg`}
     />
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import Poster from '../search-results/_components/poster/Poster'
+import Poster from '../_components/poster/Poster'
 import { getWatchImage, getWatchProviders } from '../../../services/awsServices'
 import { Image as ImageType, WatchProvider } from '../../../types/types'
 import Image from 'next/image'
