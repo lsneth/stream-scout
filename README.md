@@ -33,13 +33,13 @@ npm install
 
 ### Available scripts
 
-| Command | Description |
-| ------- | ----------- |
-| `npm run dev` | Start the development server at `http://localhost:3000`. |
-| `npm run build` | Create an optimized production build. |
-| `npm start` | Run the built application in production mode. |
-| `npm run lint` | Lint the project with ESLint. |
-| `npm test` | Execute the Cypress test suite. |
+| Command         | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `npm run dev`   | Start the development server at `http://localhost:3000`. |
+| `npm run build` | Create an optimized production build.                    |
+| `npm start`     | Run the built application in production mode.            |
+| `npm run lint`  | Lint the project with ESLint.                            |
+| `npm test`      | Execute the Cypress test suite.                          |
 
 A pre-commit hook is configured to run `npm test` automatically, so commits may
 take a little longer to complete.
@@ -53,7 +53,9 @@ take a little longer to complete.
 
 ## Todo
 
-- improve loading states
+- improve loading states and speed
 - improve accessibility
-- unit/component tests
+- more extensive testing
 - refine design and styling
+- user authentication and watchlists
+- watchlist notifications
