@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react'
 import { MovieResult, TvResult } from '../../../types/types'
-import { getWatchData } from '../../../services/awsServices'
+import { getWatchData } from '../../../services/services'
 import Poster from './_components/poster/Poster'
 import SearchForm from '../SearchForm'
 import Link from 'next/link'

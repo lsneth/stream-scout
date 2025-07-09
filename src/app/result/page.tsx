@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import Poster from '../search-results/_components/poster/Poster'
-import { getWatchImage, getWatchProviders } from '../../../services/awsServices'
+import { getWatchImage, getWatchProviders } from '../../../services/services'
 import { Image as ImageType, WatchProvider } from '../../../types/types'
 import Image from 'next/image'
 import LoadingSpinner from '../_components/LoadingSpinner'
