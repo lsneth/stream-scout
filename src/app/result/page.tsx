@@ -89,7 +89,7 @@ export default function Result({
         const data = await getWatchImage({ watchType, watchId: id })
         setBackdropImages(data.backdrops ?? data.posters ?? data.logos ?? [])
       } catch (error) {
-        console.error('Error fetching watch providers:', error)
+        console.error('Error fetching watch image:', error)
       }
     }
 
