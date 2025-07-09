@@ -1,4 +1,3 @@
-// import 'server-only'
 import { MovieTvData, WatchProviderData, ImageData } from '../types/types'
 
 const API_KEY = process.env.TMDB_API_KEY
@@ -24,6 +23,7 @@ export async function getWatchData({
   query: string
   watchType: string
 }): Promise<MovieTvData> {
+  'use server'
   const url = `https://api.themoviedb.org/3/search/${watchType}?query=${encodeURIComponent(query)}&api_key=${API_KEY}`
   return tmdbFetch(url)
 }
@@ -35,6 +35,7 @@ export async function getWatchProviders({
   watchType: string
   watchId: string
 }): Promise<WatchProviderData> {
+  'use server'
   const url = `https://api.themoviedb.org/3/${watchType}/${watchId}/watch/providers?api_key=${API_KEY}`
   return tmdbFetch(url)
 }
@@ -46,6 +47,7 @@ export async function getWatchImage({
   watchType: string
   watchId: string
 }): Promise<ImageData> {
+  'use server'
   const url = `https://api.themoviedb.org/3/${watchType}/${watchId}/images?api_key=${API_KEY}`
   return tmdbFetch(url)
 }
