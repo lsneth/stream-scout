@@ -6,7 +6,7 @@ import { getWatchImage, getWatchProviders } from '../../../services/awsServices'
 import { Image as ImageType, WatchProvider } from '../../../types/types'
 import Image from 'next/image'
 import LoadingSpinner from '../_components/LoadingSpinner'
-import SearchForm from '../SearchForm'
+import SearchForm from '../_components/SearchForm'
 
 function WatchProviders({
   type,

@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import { MovieResult, TvResult } from '../../../types/types'
 import { getWatchData } from '../../../services/awsServices'
 import Poster from './_components/poster/Poster'
-import SearchForm from '../SearchForm'
+import SearchForm from '../_components/SearchForm'
 import Link from 'next/link'
 import PosterSkeleton from './_components/poster/PosterSkeleton'
 

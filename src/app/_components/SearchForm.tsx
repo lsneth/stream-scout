@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import Button from './_components/Button'
+import Button from './Button'
 import { useRouter } from 'next/navigation'
 import { sendGAEvent } from '@next/third-parties/google'
 
