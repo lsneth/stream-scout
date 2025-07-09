@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "npx cypress run"
+    "test": "npx cypress run",
+    "codex-test": "xvfb-run -a npm run cy:run"
   },
   "pre-commit": [
     "test"
