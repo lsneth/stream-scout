@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "npx cypress run",
-    "test:xvfb": "xvfb-run -a npm run cy:run",
+    "test:xvfb": "xvfb-run -a npm run test",
     "test:codex": "start-server-and-test dev http://localhost:3000 test:xvfb"
   },
   "pre-commit": [
