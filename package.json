@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "npx cypress run",
-    "codex-test": "xvfb-run -a npm run cy:run"
+    "test:xvfb": "xvfb-run -a npm run cy:run",
+    "test:codex": "start-server-and-test dev http://localhost:3000 test:xvfb"
   },
   "pre-commit": [
     "test"
@@ -32,6 +33,7 @@
     "pre-commit": "^1.2.2",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
+    "start-server-and-test": "^2.0.12",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.5"
   }
