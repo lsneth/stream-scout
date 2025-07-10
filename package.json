@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0 --port 3000",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "npx cypress run",
     "test:xvfb": "xvfb-run -a npm run test",
-    "test:codex": "start-server-and-test \"npm run dev\" http-get://localhost:3000 \"npm run test:xvfb\""
+    "test:codex": "start-server-and-test dev 3000 test:xvfb"
   },
   "pre-commit": [
     "test"
