@@ -1,0 +1,12 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "id": 1,
+      "title": "The Lord of the Rings: The Return of the King",
+      "poster_path": "/return-of-king.jpg"
+    }
+  ],
+  "total_pages": 1,
+  "total_results": 1
+}
