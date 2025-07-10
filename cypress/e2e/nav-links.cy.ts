@@ -31,4 +31,32 @@ describe('navigation links', () => {
       .click()
     cy.wait('@devSite')
   })
+
+  it('opens TMDB website from footer', () => {
+    cy.intercept('GET', 'https://developer.themoviedb.org/**', {
+      statusCode: 200,
+      body: '<html></html>',
+    }).as('tmdb')
+    cy.visit('http://localhost:3000/search-results?query=lord&watchType=movie')
+    cy.wait('@searchMovie')
+    cy.get(
+      'footer a[href="https://developer.themoviedb.org/reference/intro/getting-started"]',
+    )
+      .invoke('attr', 'target', '_self')
+      .click()
+    cy.wait('@tmdb')
+  })
+
+  it('opens JustWatch website from footer', () => {
+    cy.intercept('GET', 'https://www.justwatch.com/**', {
+      statusCode: 200,
+      body: '<html></html>',
+    }).as('justwatch')
+    cy.visit('http://localhost:3000/search-results?query=lord&watchType=movie')
+    cy.wait('@searchMovie')
+    cy.get('footer a[href="https://www.justwatch.com/"]')
+      .invoke('attr', 'target', '_self')
+      .click()
+    cy.wait('@justwatch')
+  })
 })
