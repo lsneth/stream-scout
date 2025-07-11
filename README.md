@@ -39,9 +39,10 @@ npm install
 | `npm run build` | Create an optimized production build.                    |
 | `npm start`     | Run the built application in production mode.            |
 | `npm run lint`  | Lint the project with ESLint.                            |
-| `npm test`      | Execute the Cypress test suite.                          |
+| `npm run test:e2e` | Execute the Cypress end-to-end tests.              |
+| `npm run test:ct`  | Execute Cypress component tests.                   |
 
-A pre-commit hook is configured to run `npm test` automatically, so commits may
+A pre-commit hook is configured to run `npm run test:codex` automatically, so commits may
 take a little longer to complete.
 
 ## Project structure
@@ -49,7 +50,7 @@ take a little longer to complete.
 - `src/app` – Next.js routes and shared components
 - `services` – helper functions that call the AWS endpoints
 - `types` – TypeScript type definitions
-- `cypress` – tests
+- `cypress` – end-to-end and component tests
 
 ## Todo
 

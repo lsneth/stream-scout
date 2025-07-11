@@ -7,12 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "npx cypress run",
-    "test:xvfb": "xvfb-run -a npm run test",
-    "test:codex": "start-server-and-test dev 3000 test:xvfb"
+    "test:e2e": "npx cypress run",
+    "test:ct": "COMPONENT_TESTING=1 PORT=3000 npx cypress run --component",
+    "test:e2e:xvfb": "xvfb-run -a npm run test:e2e",
+    "test:ct:xvfb": "COMPONENT_TESTING=1 PORT=3000 xvfb-run -a npm run test:ct",
+    "test:xvfb": "npm run test:e2e:xvfb && npm run test:ct:xvfb",
+    "test:e2e:codex": "start-server-and-test dev http://localhost:3000 test:e2e:xvfb",
+    "test:codex": "npm run test:e2e:codex && npm run test:ct:xvfb"
   },
   "pre-commit": [
-    "test"
+    "test:codex"
   ],
   "dependencies": {
     "@next/third-parties": "^14.2.3",
