@@ -1,6 +1,5 @@
 import React from 'react'
 import SearchForm from './SearchForm'
-import * as nextNavigation from 'next/navigation'
 
 describe('<SearchForm />', () => {
   it('renders form elements with default props', () => {
@@ -14,8 +13,7 @@ describe('<SearchForm />', () => {
 
   it('submits search query', () => {
     const push = cy.stub().as('push')
-    cy.stub(nextNavigation, 'useRouter').returns({ push } as any)
-    cy.mount(<SearchForm />)
+    cy.mount(<SearchForm routerPush={push} />)
 
     cy.get('input#query').type('star wars')
     cy.contains('button', 'TV Shows').click()

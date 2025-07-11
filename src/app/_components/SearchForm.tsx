@@ -9,10 +9,12 @@ export default function SearchForm({
   long = false,
   defaultWatchType = 'movie',
   defaultQuery = '',
+  routerPush,
 }: {
   long?: boolean
   defaultWatchType?: 'movie' | 'tv'
   defaultQuery?: string
+  routerPush?: (url: string) => void
 }) {
   const router = useRouter()
   const [watchType, setWatchType] = useState<'tv' | 'movie'>(defaultWatchType)
@@ -21,9 +23,12 @@ export default function SearchForm({
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     sendGAEvent('event', 'search', { watchType, query })
-    router.push(
-      `/search-results?query=${query.replace(/ /g, '+')}&watchType=${watchType}`,
-    )
+    const path = `/search-results?query=${query.replace(/ /g, '+')}&watchType=${watchType}`
+    if (routerPush) {
+      routerPush(path)
+    } else {
+      router.push(path)
+    }
   }
 
   return (

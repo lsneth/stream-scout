@@ -10,7 +10,7 @@
     "test:ct": "npx cypress run --component",
     "test:e2e": "npx cypress run",
     "test:all": "npm run test:ct && npm run test:e2e",
-    "test:codex": "start-server-and-test dev 3000 xvfb-run -a npm run test:all"
+    "test:codex": "start-server-and-test dev http://localhost:3000 \"xvfb-run -a npm run test:all\""
   },
   "pre-commit": [
     "test:all"
