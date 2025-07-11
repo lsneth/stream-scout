@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "results": {
+    "US": {
+      "flatrate": [
+        {"provider_id": 8, "provider_name": "Netflix", "logo_path": "/netflix.png", "display_priority": 0}
+      ],
+      "buy": [
+        {"provider_id": 2, "provider_name": "Apple TV", "logo_path": "/apple.png", "display_priority": 0}
+      ],
+      "rent": []
+    }
+  }
+}
